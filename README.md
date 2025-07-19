@@ -43,16 +43,17 @@ composer create-project laravel/laravel backend
 5. Go to vs code, make sure you are in this path : towing-request-system/backend. Run: php artisan make:model TowingRequest -m. This will create a file xxxx_xx_xx_xxxxxx_create_towing_requests_table.php. This file will represent our towing_request_system table in Laravel, allowing us to interact with it in code. -m stands for new migration file.
 
 6. In database/migrations/xxxx_xx_xx_create_towing_requests_table.php, define:
-    public function up(): void
-{
-    Schema::create('towing_requests', function (Blueprint $table) {
-        $table->id();
-        $table->string('customer_name');
-        $table->string('location');
-        $table->text('note')->nullable();
-        $table->timestamps();
-    });
-}
+    ```php
+        public function up(): void
+    {
+        Schema::create('towing_requests', function (Blueprint $table) {
+            $table->id();
+            $table->string('customer_name');
+            $table->string('location');
+            $table->text('note')->nullable();
+            $table->timestamps();
+        });
+    }```
 
 7. Run migrations: php artisan migrate
     Check that the towing_requests table is created in your towing_db.
@@ -71,22 +72,24 @@ composer create-project laravel/laravel backend
 
 9. php artisan make:provider RouteServiceProvider
     Inside app/Providers/RouteServiceProvider.php, add:
+
+    ```php
     
-    use Illuminate\Support\Facades\Route;
-    use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+        use Illuminate\Support\Facades\Route;
+        use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-    class RouteServiceProvider extends ServiceProvider
-    {
-        public function boot(): void
+        class RouteServiceProvider extends ServiceProvider
         {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+            public function boot(): void
+            {
+                Route::middleware('api')
+                    ->prefix('api')
+                    ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
-        }
-    }
+                Route::middleware('web')
+                    ->group(base_path('routes/web.php'));
+            }
+        }```
 
 
 10. php artisan optimize:clear
@@ -94,6 +97,7 @@ composer create-project laravel/laravel backend
 11. php artisan make:controller TowingRequestController
 
 12. Inside app/Http/Controllers/TowingRequestController.php:
+    ```php
 
     <?php
 
@@ -124,15 +128,17 @@ composer create-project laravel/laravel backend
             $requests = TowingRequest::all();
             return response()->json($requests);
         }
-    }
+    }```
 
 13. In app/Models/TowingRequest.php, add:
+
+    ```php
      
     protected $fillable = [
         'customer_name',
         'location',
         'note',
-    ];
+    ];```
 
 14. php artisan serve(server should start running now at http://127.0.0.1:8000)
 
@@ -203,6 +209,7 @@ composer create-project laravel/laravel backend
 
 4. Inside src/App.js:
     Replace contents with:
+    ```javascript
 
     import React, { useState } from 'react';
     import './App.css';
@@ -285,6 +292,7 @@ composer create-project laravel/laravel backend
         }
 
         export default App;
+        ```
 
 5. Inside src/App.css add the below:
 
@@ -334,6 +342,7 @@ composer create-project laravel/laravel backend
 2. Go to:
     mobile-driver/app/index.tsx
     Replace it with below code:
+    ```javascript
 
     import React, { useEffect, useState } from 'react';
     import { SafeAreaView, FlatList, Text, View, StyleSheet, ActivityIndicator } from 'react-native';
@@ -416,6 +425,7 @@ composer create-project laravel/laravel backend
         fontWeight: 'bold',
     },
     });
+    ```
 
 3. Replace:
     fetch('http://192.168.1.80:8000/api/requests')
