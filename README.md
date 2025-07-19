@@ -59,6 +59,7 @@ composer create-project laravel/laravel backend
 
 8. Since Laravel v12 does not include api.php by default, create it:
     In routes/api.php, paste the following code:
+    ```php
     <?php
 
     use Illuminate\Support\Facades\Route;
@@ -66,6 +67,7 @@ composer create-project laravel/laravel backend
 
     Route::post('/requests', [TowingRequestController::class, 'store']);
     Route::get('/requests', [TowingRequestController::class, 'index']);
+    ```
 
 9. php artisan make:provider RouteServiceProvider
     Inside app/Providers/RouteServiceProvider.php, add:
