@@ -53,7 +53,7 @@ composer create-project laravel/laravel backend
             $table->text('note')->nullable();
             $table->timestamps();
         });
-    }```
+    }
 
 7. Run migrations: php artisan migrate
     Check that the towing_requests table is created in your towing_db.
@@ -68,7 +68,7 @@ composer create-project laravel/laravel backend
 
     Route::post('/requests', [TowingRequestController::class, 'store']);
     Route::get('/requests', [TowingRequestController::class, 'index']);
-    ```
+    
 
 9. php artisan make:provider RouteServiceProvider
     Inside app/Providers/RouteServiceProvider.php, add:
@@ -89,7 +89,7 @@ composer create-project laravel/laravel backend
                 Route::middleware('web')
                     ->group(base_path('routes/web.php'));
             }
-        }```
+        }
 
 
 10. php artisan optimize:clear
@@ -128,7 +128,7 @@ composer create-project laravel/laravel backend
             $requests = TowingRequest::all();
             return response()->json($requests);
         }
-    }```
+    }
 
 13. In app/Models/TowingRequest.php, add:
 
@@ -138,7 +138,7 @@ composer create-project laravel/laravel backend
         'customer_name',
         'location',
         'note',
-    ];```
+    ];
 
 14. php artisan serve(server should start running now at http://127.0.0.1:8000)
 
@@ -175,6 +175,8 @@ composer create-project laravel/laravel backend
     Under the backend folder, run : touch config/cors.php
 
     Add:
+
+    ```php
 
     <?php
 
@@ -292,7 +294,7 @@ composer create-project laravel/laravel backend
         }
 
         export default App;
-        ```
+        
 
 5. Inside src/App.css add the below:
 
@@ -425,7 +427,7 @@ composer create-project laravel/laravel backend
         fontWeight: 'bold',
     },
     });
-    ```
+    
 
 3. Replace:
     fetch('http://192.168.1.80:8000/api/requests')
