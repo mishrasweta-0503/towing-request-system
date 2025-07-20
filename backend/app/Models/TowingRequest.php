@@ -11,6 +11,7 @@ class TowingRequest extends Model
         'customer_name',
         'location',
         'note',
+        'status',
     ];
 
 }

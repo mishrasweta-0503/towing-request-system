@@ -27,4 +27,17 @@ class TowingRequestController extends Controller
         $requests = TowingRequest::all();
         return response()->json($requests);
     }
+    // PUT /api/requests/{id}/accept
+    public function accept($id)
+    {
+        $request = TowingRequest::findOrFail($id);
+        $request->status = 'assigned';
+        $request->save();
+
+        return response()->json([
+            'message' => 'Request accepted successfully.',
+            'request' => $request
+        ]);
+    }
+
 }
