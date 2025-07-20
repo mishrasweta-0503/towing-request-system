@@ -24,16 +24,20 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
     Run : git clone https://github.com/mishrasweta-0503/towing-request-system.git
 6. This will create a towing-request-system folder with three sub folders(backend, web-customer, mobile-driver) and README.md file.
 7. Navigate to `backend/` folder.
+        ```bash
         Run : composer install
         Run : cp .env.example .env
         Run : php artisan key:generate
+        ```
 8. In your Laravel project’s .env, configure:
+    ```env
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=towing_db
     DB_USERNAME=root
     DB_PASSWORD=
+    ```
     (leave DB_PASSWORD empty)
 
 
@@ -54,14 +58,17 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
     URL: http://127.0.0.1:8000/api/requests
     Method: POST
     Body → raw → JSON:
+    ```json
     {
         "customer_name": "John Doe",
         "location": "123 Main Street",
         "note": "Flat tire"
     }
+    ```
 
 12. Click Send
     You should get:
+    ```json
     {
         "id": 1,
         "customer_name": "John Doe",
@@ -70,7 +77,7 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
         "created_at": "2025-07-18T14:20:00.000000Z",
         "updated_at": "2025-07-18T14:20:00.000000Z"
     }
-    
+    ```
 13. Test GET /api/requests
     URL: http://127.0.0.1:8000/api/requests
     Method: GET
@@ -103,8 +110,10 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
 1. Navigate : cd ../mobile-driver
 
 2. Run:
+    ```bash
     npm install
     npm start
+    ```
 
 3. Replace:
     fetch('http://192.168.1.80:8000/api/requests')
