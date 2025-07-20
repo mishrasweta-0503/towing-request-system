@@ -132,7 +132,10 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
     (ipconfig for windows or ifconfig for macbook)
 
 5. Now, run laravel server from your root backend folder.(make sure your laptop and mobile are on the same wifi network)
-    Run via : php artisan serve --host=0.0.0.0 --port=8000 (this allows your mobile device to access your Laravel backend over the local network. )
+    Run:
+    ```bash
+    php artisan serve --host=0.0.0.0 --port=8000 
+    (this allows your mobile device to access your Laravel backend over the local network. )
 
 6. Make sure your web browser is also running from root web-customer folder 
 
