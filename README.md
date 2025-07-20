@@ -27,11 +27,11 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
     ```bash
     git clone https://github.com/mishrasweta-0503/towing-request-system.git
 6. This will create a towing-request-system folder with three sub folders(backend, web-customer, mobile-driver) and README.md file.
-7. Navigate to `backend/` folder.
+7. Navigate to `backend/` folder. Run:
         ```bash
-        Run : composer install
-        Run : cp .env.example .env
-        Run : php artisan key:generate
+        composer install
+        cp .env.example .env
+        php artisan key:generate
         ```
 8. In your Laravel project’s .env, configure:
     ```env
