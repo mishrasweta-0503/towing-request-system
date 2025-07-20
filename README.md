@@ -18,10 +18,14 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
 
 1. Install Xampp (operating system specific) for php and mysql. (https://www.apachefriends.org/)
 2. After the installation, make sure Apache and MySQL are running.(MySQL runs on port 3306, make sure port 3306 is free)
-3. Check whether php is properly installed or not. Run: php --version
+3. Check whether php is properly installed or not. Run:
+    ```bash
+    php --version
 4. Install composer (a dependency manager for php) (https://getcomposer.org/)
 5. Go to visual studio code. Open a new terminal. Through the new terminal, under any folder of your choice in your system, 
-    Run : git clone https://github.com/mishrasweta-0503/towing-request-system.git
+    Run:
+    ```bash
+    git clone https://github.com/mishrasweta-0503/towing-request-system.git
 6. This will create a towing-request-system folder with three sub folders(backend, web-customer, mobile-driver) and README.md file.
 7. Navigate to `backend/` folder.
         ```bash
@@ -50,7 +54,10 @@ This project implements a basic towing request system with a Laravel 12.20.0 +  
     Run migration : php artisan migrate(this command will create tables in your database if they don’t exist yet.)  
     If successful, you will see: go to phpMyAdmin → towing_request_system → Tables to confirm default tables (users, password_reset_tokens, etc.) are created.
 
-    Then Run : php artisan serve (you should your server running at http://127.0.0.1:8000/)
+    Then Run :
+    ```bash
+    php artisan serve 
+    (you should ensure your server running at http://127.0.0.1:8000/)
 
 
 11. Install Postman to test API.
